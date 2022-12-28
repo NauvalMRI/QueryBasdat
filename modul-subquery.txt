@@ -1,0 +1,28 @@
+Scalar Subquery
+
+SELECT id_pegawai, Nama_pegawai, Alamat_pegawai FROM karyawan
+WHERE id_pegawai = '5001';
+
+
+Multiple-Row Subquery
+
+#IN
+SELECT id_pegawai, Nama_pegawai, Alamat_pegawai FROM karyawan
+WHERE id_pegawai IN ( SELECT id_pegawai FROM transaksi);
+
+#ANY/SOME
+
+SELECT* FROM menu where harga_menu > any 
+(SELECT harga_menu from menu WHERE harga_menu = 14000);
+
+#ALL
+
+SELECT* FROM menu where harga_menu < all
+(SELECT harga_menu from menu WHERE harga_menu = 14000);
+
+
+Multiple-Column Subquery
+
+SELECT karyawan.id_pegawai, karyawan.Nama_pegawai FROM karyawan
+WHERE karyawan.id_pegawai = ( SELECT id_pegawai FROM bahan WHERE bahan.nama_bahan ='Bubuk teh');
+
