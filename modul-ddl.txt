@@ -69,4 +69,4 @@ Rename table pegawai to karyawan
 drop table trash
 
 Truncate table customer
-    
+     
