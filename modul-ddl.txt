@@ -1,0 +1,64 @@
+# MEMBUAT DATABASE
+
+CREATE database Cafe_fnB;
+
+# MEMBUAT TABLE (ENTITAS)
+
+create table Customer (
+    ID_customer varchar(50) PRIMARY KEY,
+    Nama_customer varchar (50)
+);
+
+create table cabang (
+    id_cabang varchar (50) primary key,
+    nama_cabang varchar (50),
+    alamat_cabang varchar (50)
+    );
+    
+CREATE table menu (
+    id_menu varchar (50) primary key,
+    nama_menu varchar (50),
+    harga_menu varchar (50)
+    );
+ 
+CREATE table bahan (
+    id_bahan varchar (50) primary key,
+    nama_bahan varchar (50),
+    stok_bahan varchar (50)
+    );
+
+create table pegawai (
+    id_pegawai varchar(50) primary key,
+    nama_pegawai varchar(50),
+    telp_pegawai int,
+    alamat_pegawai varchar(50)
+    );
+
+create table transaksi (
+    no_transaksi varchar (50) primary key,
+    tanggaL_transaksi timestamp,
+    total_pembayaran varchar (50),
+    jenis_pembayaran varchar (50),
+    jumlah_pesanan int
+    );
+    
+# ALTER TABLE (MENAMBAH KOLOM DAN FOREIGN KEY)
+    
+ALTER table bahan 
+    add id_pegawai varchar (50), 
+    add foreign key (id_pegawai)REFERENCES pegawai(id_pegawai);
+    
+ALTER table pegawai
+    add id_cabang varchar (50), 
+    add foreign key (id_cabang)REFERENCES cabang(id_cabang);
+    
+ALTER table transaksi
+    add id_pegawai varchar (50),
+    add id_customer varchar(50),
+    add foreign key (id_pegawai)REFERENCES pegawai(id_pegawai),
+    add foreign key (id_customer)REFERENCES customer(id_customer);
+ 
+ALTER table menu
+    add no_transaksi varchar (50),
+    add foreign key (no_transaksi)REFERENCES transaksi(no_transaksi);
+    
