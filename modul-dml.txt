@@ -1,3 +1,117 @@
 # INSERT TO TABLE
 
-Insert Into
+INSERT INTO customer (ID_customer, Nama_customer)
+VALUES
+('1001', 'Alfachri'),
+('1002', 'Rafi'),
+('1003', 'Reynald'),
+('1004', 'Javier'),
+('1005', 'Aryananda');
+
+INSERT INTO cabang (id_cabang,nama_cabang,alamat_cabang)
+VALUES
+('2001', 'Misuek cabang UPN','Jl.Rungkut asri timur No.38');
+
+insert into menu (id_menu,nama_menu,harga_menu,no_transaksi)
+VALUES
+('3001', 'Sundae Original','18000'),
+('3002', 'Manggo Tea','18000'),
+('3003', 'Americano Coffe','14000'),
+('3004', 'Jasmine tea','12000'),
+('3005', 'Sundae Oreo','18000');
+
+insert into bahan (id_bahan,nama_bahan,stok_bahan)
+VALUES
+('4001', 'es krim Vanilla','50'),
+('4002', 'Bubuk kopi','20'),
+('4003', 'Bubuk teh','10'),
+('4004', 'Remahan Oreo','8'),
+('4005', 'Perisa Mangga','5');
+
+insert into karyawan (id_pegawai,nama_pegawai,telp_pegawai,alamat_pegawai )
+values
+('5001', 'Rafi','81234571','jl.selamat no.12'),
+('5002', 'Javier','81234572','jl.selamat no.23'),
+('5003', 'Ocha','81234573','jl.prapen no.52'),
+('5004', 'Raya','81234574','jl.rungkut asri timur no.34'),
+('5005', 'Ikura','81234575','jl.soekarno no.17');
+
+insert into transaksi ( no_transaksi,total_pembayaran,jenis_pembayaran,jumlah_pesanan)
+values
+('6001', '90000','tunai','5'),
+('6002', '70000','gopay','5'),
+('6004', '26000','tunai','2'),
+('6003', '30000','gopay','2'),
+('6005', '18000','tunai','1');
+----------------------------------------------------------------------------------------
+# KARENA LUPA MEMASUKKAN FOREIGN KEY , SAYA MENGGUNAKAN UPDATE UNTUK MEMASUKKAN FOREIGN KEY
+
+UPDATE `karyawan` SET `id_cabang` = '2001'
+WHERE `karyawan`.`id_pegawai` = '5001';
+UPDATE `karyawan` SET `id_cabang` = '2001'
+WHERE `karyawan`.`id_pegawai` = '5002';
+UPDATE `karyawan` SET `id_cabang` = '2001'
+WHERE `karyawan`.`id_pegawai` = '5003';
+UPDATE `karyawan` SET `id_cabang` = '2001'
+WHERE `karyawan`.`id_pegawai` = '5004';
+UPDATE `karyawan` SET `id_cabang` = '2001'
+WHERE `karyawan`.`id_pegawai` = '5005';
+
+
+UPDATE `bahan` SET `id_pegawai` = '5001'
+WHERE `bahan`.`id_bahan` = '4001';
+UPDATE `bahan` SET `id_pegawai` = '5005'
+WHERE `bahan`.`id_bahan` = '4002';
+UPDATE `bahan` SET `id_pegawai` = '5004'
+WHERE `bahan`.`id_bahan` = '4003';
+UPDATE `bahan` SET `id_pegawai` = '5002'
+WHERE `bahan`.`id_bahan` = '4004';
+UPDATE `bahan` SET `id_pegawai` = '5001'
+WHERE `bahan`.`id_bahan` = '4005';
+
+UPDATE `menu` SET `no_transaksi` = '6005' 
+WHERE `menu`.`id_menu` = '3001';
+UPDATE `menu` SET `no_transaksi` = '6001' 
+WHERE `menu`.`id_menu` = '3002';
+UPDATE `menu` SET `no_transaksi` = '6002' 
+WHERE `menu`.`id_menu` = '3003';
+UPDATE `menu` SET `no_transaksi` = '6003' 
+WHERE `menu`.`id_menu` = '3004';
+UPDATE `menu` SET `no_transaksi` = '6004' 
+WHERE `menu`.`id_menu` = '3005';
+
+UPDATE `transaksi` SET `id_pegawai` = '5001'
+WHERE `transaksi`.`no_transaksi` = '6001';
+UPDATE `transaksi` SET `id_customer` = '1001' 
+WHERE `transaksi`.`no_transaksi` = '6001';
+UPDATE `transaksi` SET `id_pegawai` = '5005'
+WHERE `transaksi`.`no_transaksi` = '6002';
+UPDATE `transaksi` SET `id_customer` = '1005' 
+WHERE `transaksi`.`no_transaksi` = '6002';
+UPDATE `transaksi` SET `id_pegawai` = '5004'
+WHERE `transaksi`.`no_transaksi` = '6003';
+UPDATE `transaksi` SET `id_customer` = '1003' 
+WHERE `transaksi`.`no_transaksi` = '6003';
+UPDATE `transaksi` SET `id_pegawai` = '5003'
+WHERE `transaksi`.`no_transaksi` = '6004';
+UPDATE `transaksi` SET `id_customer` = '1004' 
+WHERE `transaksi`.`no_transaksi` = '6004';
+UPDATE `transaksi` SET `id_pegawai` = '5003'
+WHERE `transaksi`.`no_transaksi` = '6005';
+UPDATE `transaksi` SET `id_customer` = '1002' 
+WHERE `transaksi`.`no_transaksi` = '6005';
+
+--------------------------------------------------------------------------------------
+#DML - SELECT 
+
+SELECT id_pegawai from bahan;
+*Menampilkan kolom yang terpilih dalam suatu entitas
+
+SELECT * from bahan;
+*Menampilkan Seluruh data pada suatu entitas
+
+--------------------------------------------------------------------------------------
+
+#DML - DELETE
+
+delete from menu where nama_menu = 'Manggo tea';
