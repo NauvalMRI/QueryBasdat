@@ -114,4 +114,4 @@ SELECT * from bahan;
 
 #DML - DELETE
 
-delete from menu where nama_menu = 'Manggo tea';
+delete from menu where nama_menu = 'Manggo tea'; 
