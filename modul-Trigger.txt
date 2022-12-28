@@ -1,0 +1,26 @@
+CREATE TABLE log_karyawan
+(
+    id_log INT(10) AUTO_INCREMENT,
+    id_pegawai varchar(20),
+    alamat_lama VARCHAR(100),
+    alamat_baru VARCHAR(100),
+    PRIMARY KEY(id_log)
+);
+-------------------------------------
+DELIMITER $$
+CREATE TRIGGER update_alamat_pegawai
+    BEFORE UPDATE 
+    ON karyawan
+    FOR EACH ROW 
+BEGIN
+    INSERT INTO log_karyawan
+    set id_karyawan=OLD.id_karyawan,
+    alamat_lama=old.alamat_karyawan,
+    alamat_baru=new.alamat_karyawan;
+END$$
+DELIMITER ;
+------------------------------------
+UPDATE karyawan 
+SET alamat_karyawan = 'MALANG'
+WHERE id_karyawan = 'KA05';
+
