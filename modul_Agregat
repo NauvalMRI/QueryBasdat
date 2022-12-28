@@ -1,0 +1,19 @@
+COUNT ()
+
+select COUNT(id_pegawai) as 'jumlah karyawan' from karyawan
+
+SUM ()
+
+select SUM(total_pembayaran) as 'pemasukan hari ini' from transaksi
+
+AVG()
+
+SELECT Avg(harga_menu) as 'rata-rata harga'from menu
+
+MIN()
+
+SELECT min(harga_menu) as 'termurah harga'from menu
+
+MAX ()
+
+SELECT max(harga_menu) as 'termahal harga'from menu
