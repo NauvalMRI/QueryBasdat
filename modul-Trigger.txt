@@ -1,12 +1,19 @@
+
+#Membuat table untuk menyimpan record aktivitas
+
 CREATE TABLE log_karyawan
 (
     id_log INT(10) AUTO_INCREMENT,
     id_pegawai varchar(20),
-    alamat_lama VARCHAR(100),
-    alamat_baru VARCHAR(100),
+    alamat_lama VARCHAR(50),
+    alamat_baru VARCHAR(50),
+    waktu DATE,
     PRIMARY KEY(id_log)
 );
--------------------------------------
+-----------------------------------
+
+# Membuat Trigger 
+
 DELIMITER $$
 CREATE TRIGGER update_alamat_pegawai
     BEFORE UPDATE 
@@ -14,13 +21,23 @@ CREATE TRIGGER update_alamat_pegawai
     FOR EACH ROW 
 BEGIN
     INSERT INTO log_karyawan
-    set id_karyawan=OLD.id_karyawan,
-    alamat_lama=old.alamat_karyawan,
-    alamat_baru=new.alamat_karyawan;
+    set id_pegawai = OLD.id_pegawai,
+    alamat_lama=old.alamat_pegawai,
+    alamat_baru=new.alamat_pegawai,
+    waktu = NOW(); 
 END$$
 DELIMITER ;
-------------------------------------
-UPDATE karyawan 
-SET alamat_karyawan = 'MALANG'
-WHERE id_karyawan = 'KA05';
 
+------------------------------------
+
+#melakukan update pada alamat untuk memancing trigger
+
+UPDATE karyawan 
+SET alamat_pegawai = 'jln. tenggilis lama no.42'
+WHERE id_pegawai = '5001';
+
+------------------------------------
+
+#mengecek trigger apakah bekerja dengan baik
+
+SELECT * FROM `log_karyawan`
