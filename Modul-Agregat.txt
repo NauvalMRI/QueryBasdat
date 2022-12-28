@@ -4,7 +4,7 @@ SELECT * from cabang join karyawan
 where cabang.id_cabang=karyawan.id_cabang;
 
 
-Left Outer Join
+Left Outer Join 
 
 Select * from karyawan LEFT JOIN transaksi 
 ON karyawan.id_pegawai = transaksi.id_pegawai;
