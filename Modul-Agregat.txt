@@ -1,0 +1,45 @@
+Inner Join 
+
+SELECT * from cabang join karyawan 
+where cabang.id_cabang=karyawan.id_cabang;
+
+
+Left Outer Join
+
+Select * from karyawan LEFT JOIN transaksi 
+ON karyawan.id_pegawai = transaksi.id_pegawai;
+
+
+Right Outer join
+
+Select * from bahan RIGHT JOIN karyawan 
+ON bahan.id_pegawai = karyawan.id_pegawai;
+
+
+Full Outer join
+
+Select * from karyawan LEFT JOIN transaksi
+ON karyawan.id_pegawai = transaksi.id_pegawai
+UNION ALL
+Select * from karyawan RIGHT JOIN transaksi 
+ON karyawan.id_pegawai = transaksi.id_pegawai;
+
+
+Cross join
+
+Select * from karyawan CROSS JOIN transaksi 
+ON karyawan.id_pegawai = transaksi.id_pegawai;
+
+
+Natural join
+
+SELECT * FROM karyawan NATURAL JOIN transaksi
+
+
+Union
+
+SELECT id_pegawai FROM karyawan
+UNION
+SELECT id_pegawai FROM transaksi
+ORDER BY id_pegawai
+
