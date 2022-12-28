@@ -1,0 +1,32 @@
+Store Procedure
+
+# Untuk Mengecek Semua karyawan #
+
+DELIMITER //
+CREATE PROCEDURE Cek_Karyawan()
+BEGIN
+SELECT * FROM karyawan;
+END //
+DELIMITER ;
+
+untuk memanggil store procedure
+
+Call cek_karyawan();
+
+------------------------------
+
+# Untuk Mengecek menu yang sesuai dengan Harga yang diinputkan #
+
+DELIMITER //
+CREATE PROCEDURE CekHargaMenu (IN Harga_Menu VARCHAR(50))
+BEGIN 
+SELECT * FROM menu
+WHERE menu.harga_menu=Harga_menu;
+END;
+DELIMITER ;
+
+untuk memanggil stored procedure
+
+call CekHargamenu();
+
+------------------------------
