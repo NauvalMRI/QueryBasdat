@@ -62,3 +62,11 @@ ALTER table menu
     add no_transaksi varchar (50),
     add foreign key (no_transaksi)REFERENCES transaksi(no_transaksi);
     
+# Rename,drop,truncate.
+
+Rename table pegawai to karyawan
+
+drop table trash
+
+Truncate table customer
+    
