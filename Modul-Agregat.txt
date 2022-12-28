@@ -40,6 +40,6 @@ Union
 
 SELECT id_pegawai FROM karyawan
 UNION
-SELECT id_pegawai FROM transaksi
+SELECT id_pegawai FROM transaksi 
 ORDER BY id_pegawai
 
